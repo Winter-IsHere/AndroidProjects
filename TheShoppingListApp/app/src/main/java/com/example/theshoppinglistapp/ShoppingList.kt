@@ -37,8 +37,8 @@ import androidx.compose.ui.unit.dp
 
 data class ShoppingItem(
     val id: Int,
-    val name: String,
-    val quantity: Int,
+    var name: String,
+    var quantity: Int,
     val isEditing : Boolean = false
 )
 
@@ -109,7 +109,28 @@ fun ShoppingListApp()
                 .padding(16.dp)
         ){
             items(sItems){
-                    ShoppingListItem(it,{},{})
+                    item ->
+                    if (item.isEditing){
+                        ShoppingItemEditor(item = item, onEditComplete = {
+                            editedName, editedQuantity ->
+                            sItems = sItems.map { it.copy(isEditing = false) }
+                            val editedItem = sItems.find { it.id == item.id }
+                            editedItem?.let {
+                                it.name = editedName
+                                it.quantity = editedQuantity
+                            }
+                        })
+                    }
+                    else{
+                        ShoppingListItem(item = item,
+                            onEditClick = {
+                            //finding our which item we are editiing and changing is "isEditing boolean to true
+                            sItems = sItems.map { it.copy(isEditing = it.id == item.id) }
+                        },
+                            onDeleteClick = {
+                            sItems = sItems - item
+                        })
+                    }
             }
         }
     }
@@ -190,7 +211,8 @@ fun ShoppingListItem(
                     Color.Cyan
                 ),
                 shape = RoundedCornerShape(20)
-            )
+            ),
+        horizontalArrangement = Arrangement.Absolute.SpaceBetween
     ) {
         Text(
             text = item.name,
