@@ -30,7 +30,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.layout
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.unitconverter.ui.theme.UnitConverterTheme
@@ -61,12 +60,12 @@ fun UnitConverter(){
     var outputUnit by remember { mutableStateOf("Meters") }
     var iExpanded by remember { mutableStateOf(false) }
     var oExpanded by remember { mutableStateOf(false) }
-    var conversionFactor = remember { mutableDoubleStateOf(1.0) }
-    var oConversionFactor = remember { mutableDoubleStateOf(1.0) }
+    val conversionFactor = remember { mutableDoubleStateOf(1.0) }
+    val oConversionFactor = remember { mutableDoubleStateOf(1.0) }
 
     fun convertUnit(){
-        var inputValueDouble = inputValue.toDoubleOrNull() ?: 0.0
-        var result = (inputValueDouble * conversionFactor.value * 100.0 / oConversionFactor.value ).roundToInt() / 100.0
+        val inputValueDouble = inputValue.toDoubleOrNull() ?: 0.0
+        val result = (inputValueDouble * conversionFactor.doubleValue * 100.0 / oConversionFactor.doubleValue ).roundToInt() / 100.0
         outputValue = result.toString()
     }
 
