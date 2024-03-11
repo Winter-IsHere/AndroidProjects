@@ -38,7 +38,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    }
+}
 
 @Composable
 fun TheCounterApp(viewModel: CounterViewModel){
