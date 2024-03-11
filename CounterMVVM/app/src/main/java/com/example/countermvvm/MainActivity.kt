@@ -13,58 +13,50 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.countermvvm.ui.theme.CounterMVVMTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val viewModel : CounterViewModel = viewModel()
             CounterMVVMTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    TheCounterApp()
+                    TheCounterApp(viewModel)
                 }
             }
         }
     }
-}
+
+    }
 
 @Composable
-fun TheCounterApp(){
-    val count = remember { mutableIntStateOf(0) }
-
-    fun increment(){
-        count.value ++
-    }
-    fun decrement(){
-        count.value --
-    }
-    
+fun TheCounterApp(viewModel: CounterViewModel){
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        Text(text = "Count : ${count.value}", fontSize = 24.sp, fontWeight = FontWeight.Bold)
+        Text(text = "Count : ${viewModel.count.value} ", fontSize = 24.sp, fontWeight = FontWeight.Bold)
         Row {
             Button(
-                onClick = { increment() },
+                onClick = { viewModel.increment() },
                 modifier = Modifier.padding(8.dp)
                 ) {
                 Text(text = "Increment")
             }
             Button(
-                onClick = { decrement() },
+                onClick = { viewModel.decrement() },
                 modifier = Modifier.padding(8.dp)
             ){
                 Text(text = "Decrement")
