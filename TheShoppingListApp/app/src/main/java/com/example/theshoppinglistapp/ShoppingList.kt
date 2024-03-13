@@ -94,8 +94,10 @@ fun ShoppingListApp()
     var itemQuantity by remember { mutableStateOf("1") }
 
     Column(
-        modifier = Modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center
+        modifier = Modifier.fillMaxSize()
+            .background(color = Color.Red),
+        verticalArrangement = Arrangement.Center,
+
     ) {
         Button(
             onClick = {showDialog = true},
