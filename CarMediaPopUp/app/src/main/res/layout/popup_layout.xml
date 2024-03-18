@@ -1,0 +1,52 @@
+<!-- popup_layout.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="1301px"
+    android:layout_height="620px"
+    android:background="@drawable/pop_up">
+
+    <!-- Add your popup content here -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="Car Music App"
+        android:textColor="@android:color/white"
+        android:textSize="50sp"
+        android:fontFamily="@font/jura_bold"
+        />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="31dp"
+        android:fontFamily="@font/jur_light"
+        android:gravity="center"
+        android:text="The diagnostic service detected an anomaly in Car Music App software and enable the log tracing. The log report is sent to the service team."
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="121dp"
+        android:layout_height="69dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/background_btn"
+        android:gravity="center"
+        android:text="Ok"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        app:backgroundTint="@null" />
+
+    <!-- Add more views as needed -->
+
+</RelativeLayout>
