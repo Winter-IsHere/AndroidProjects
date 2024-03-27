@@ -16,7 +16,11 @@ class MainActivity : AppCompatActivity() {
 
         var btnToast = findViewById<Button>(R.id.btnToast)
         btnToast.setOnClickListener {
-            Toast.makeText(this, "Hi, I'm a Toast!",Toast.LENGTH_LONG).show()
+            Toast(this).apply {
+                duration = Toast.LENGTH_LONG
+                view = layoutInflater.inflate(R.layout.custom_toast, null)
+                show()
+            }
         }
     }
 }
