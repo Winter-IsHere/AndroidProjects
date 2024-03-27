@@ -7,11 +7,16 @@ import android.widget.CheckBox
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.toast)
 
+        var btnToast = findViewById<Button>(R.id.btnToast)
+        btnToast.setOnClickListener {
+            Toast.makeText(this, "Hi, I'm a Toast!",Toast.LENGTH_LONG).show()
+        }
     }
 }
