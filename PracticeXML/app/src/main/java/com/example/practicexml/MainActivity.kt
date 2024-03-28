@@ -1,5 +1,6 @@
 package com.example.practicexml
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -12,15 +13,13 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.toast)
+        setContentView(R.layout.activity_first)
 
-        var btnToast = findViewById<Button>(R.id.btnToast)
-        btnToast.setOnClickListener {
-            Toast(this).apply {
-                duration = Toast.LENGTH_LONG
-                view = layoutInflater.inflate(R.layout.custom_toast, null)
-                show()
-            }
+        var btnFirstActivity = findViewById<Button>(R.id.btnFirstActivity)
+        btnFirstActivity.setOnClickListener {
+                Intent(this, SecondActivity::class.java).also {
+                    startActivity(it)
+                }
         }
     }
 }
