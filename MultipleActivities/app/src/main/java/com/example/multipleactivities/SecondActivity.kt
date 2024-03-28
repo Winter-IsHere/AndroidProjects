@@ -9,9 +9,5 @@ class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
-        val tvSecondActivity = findViewById<TextView>(R.id.tvSecondActivity)
-        var person = intent.getSerializableExtra("EXTRA_PERSON") as Person
-        tvSecondActivity.text = person.toString()
-
     }
 }
