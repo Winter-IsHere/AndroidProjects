@@ -1,19 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".MainActivity"
+    android:background="@color/bgColor"
+    android:padding="16dp">
 
     <TextView
-        android:id="@+id/myText"
+        android:id="@+id/tvCalculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Calculate Your"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:layout_marginTop="16sp"
+        android:textSize="25dp"
+        android:textColor="@color/textBlue"/>
+    <TextView
+        android:id="@+id/tvAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AGE"
+        android:textStyle="bold"
+        android:layout_marginTop="16sp"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:padding="16dp"
+        android:background="@color/textBlue"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvInMinutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IN MINUTES"
+        android:textAllCaps="true"
+        android:textStyle="bold"
+        android:layout_marginTop="16sp"
+        android:textSize="25dp"
+        android:textColor="@color/textBlue"/>
+    <Button
+        android:id="@+id/btnDatePicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/darker_gray"
+        android:text="SELECT DATE"
+        android:textSize="20sp"
+        android:backgroundTint="@color/white"
+        android:layout_margin="16dp"/>
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="01/04/2024"
+        android:textSize="24sp"/>
+    <TextView
+        android:id="@+id/tvSelectedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selected Date"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"/>
+    <TextView
+        android:id="@+id/tvMinutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1440"
+        android:textSize="48sp"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/tvInMinutesTillDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="In minutes till date"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"/>
+
+
+
+</LinearLayout>
