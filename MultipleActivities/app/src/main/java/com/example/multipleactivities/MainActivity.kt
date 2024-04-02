@@ -1,63 +1,36 @@
 package com.example.multipleactivities
 
-import android.Manifest
-import android.content.pm.PackageManager
-import android.os.Build
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import androidx.annotation.RequiresApi
-import androidx.core.app.ActivityCompat
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
+
+
 
 class MainActivity : AppCompatActivity() {
-    @RequiresApi(Build.VERSION_CODES.Q)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var btnPermission = findViewById<Button>(R.id.btnPermission)
-        btnPermission.setOnClickListener {
-            requestPermissions()
-        }
     }
 
-    private fun hasWriteExternalStoragePermission() =
-        ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-    private fun hasLocationForegroundPermission() =
-        ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
-    @RequiresApi(Build.VERSION_CODES.Q)
-    private fun hasLocationBackgroundPermission() =
-        ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED
-    @RequiresApi(Build.VERSION_CODES.Q)
-    private fun requestPermissions(){
-        var permissionsToRequest = mutableListOf<String>()
-        if(!hasWriteExternalStoragePermission()){
-            permissionsToRequest.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        }
-        if(!hasLocationForegroundPermission()){
-            permissionsToRequest.add(Manifest.permission.ACCESS_COARSE_LOCATION)
-        }
-        if(!hasLocationBackgroundPermission()){
-            permissionsToRequest.add(Manifest.permission.ACCESS_BACKGROUND_LOCATION)
-        }
-
-        if (permissionsToRequest.isNotEmpty()){
-            ActivityCompat.requestPermissions(this, permissionsToRequest.toTypedArray(),0)
-        }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.my_menu,menu)
+        return true
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 0 && grantResults.isNotEmpty()){
-            for (i in grantResults.indices){
-                if (grantResults[i] == PackageManager.PERMISSION_GRANTED){
-                    Log.d("PermissionRequests", "${permissions[i]} granted")
-                }
-            }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.miSettings -> Toast.makeText(this,"You clicked on Settings", Toast.LENGTH_SHORT).show()
+            R.id.miFeedback -> Toast.makeText(this,"You clicked on Feedback", Toast.LENGTH_SHORT).show()
+            R.id.miAddContact -> Toast.makeText(this,"You clicked on Add Contact", Toast.LENGTH_SHORT).show()
+            R.id.miFavorite -> Toast.makeText(this,"You clicked on Favorite", Toast.LENGTH_SHORT).show()
+            R.id.miClose -> finish()
         }
+        return true
     }
+
+
 }

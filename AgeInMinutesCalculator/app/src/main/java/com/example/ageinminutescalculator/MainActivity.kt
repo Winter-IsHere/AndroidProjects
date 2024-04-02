@@ -38,10 +38,10 @@ class MainActivity : AppCompatActivity() {
             tvDate?.text = selectedDate
             val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
             val theDate = sdf.parse(selectedDate)
-            theDate.let {
+            theDate?.let {
                 val selectedDateInMinutes = theDate.time / 60000
                 val currentDate = sdf.parse(sdf.format(System.currentTimeMillis()))
-                currentDate.let {
+                currentDate?.let {
                     val currentDateInMinutes = currentDate.time / 60000
                     val differenceInMinutes = currentDateInMinutes - selectedDateInMinutes
                     tvMinutes?.text = differenceInMinutes.toString()

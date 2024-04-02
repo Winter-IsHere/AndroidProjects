@@ -8,13 +8,14 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tvInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="48dp"
+        android:textColor="@color/black"
+        android:gravity="bottom|end"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_weight="1"
@@ -26,36 +27,51 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
 
-            >
+            tools:ignore="NestedWeights">
             <Button
+                android:id="@+id/btnSeven"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="7"
                 android:background="@drawable/custom_button"
                 android:layout_margin="5dp"
+                app:backgroundTint="@null"
+                android:onClick="onDigit"
                 />
+
             <Button
+                android:id="@+id/btnEight"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="8"
                 android:background="@drawable/custom_button"
-                android:layout_margin="5dp"/>
+                android:onClick="onDigit"
+                android:text="8"
+                app:backgroundTint="@null" />
+
             <Button
+                android:id="@+id/btnNine"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="9"
                 android:background="@drawable/custom_button"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                app:backgroundTint="@null"
+                android:onClick="onDigit"
+                />
             <Button
+                android:id="@+id/btnDivide"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="/"
                 android:background="@drawable/custom_button"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                app:backgroundTint="@null"
+                android:onClick="onOperator"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,33 +80,45 @@
 
             >
             <Button
+                android:id="@+id/btnFour"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="4"
                 android:background="@drawable/custom_button"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                app:backgroundTint="@null"
+                android:onClick="onDigit"/>
             <Button
+                android:id="@+id/btnFive"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="5"
                 android:background="@drawable/custom_button"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                app:backgroundTint="@null"
+                android:onClick="onDigit"/>
             <Button
+                android:id="@+id/btnSix"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="6"
                 android:background="@drawable/custom_button"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                app:backgroundTint="@null"
+                android:onClick="onDigit"/>
             <Button
+                android:id="@+id/btnMultiply"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="*"
                 android:background="@drawable/custom_button"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                app:backgroundTint="@null"
+                android:onClick="onOperator"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -98,33 +126,45 @@
             android:layout_weight="1"
             >
             <Button
+                android:id="@+id/btnOne"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="1"
                 android:background="@drawable/custom_button"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                app:backgroundTint="@null"
+                android:onClick="onDigit"/>
             <Button
+                android:id="@+id/btnTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="2"
                 android:background="@drawable/custom_button"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                app:backgroundTint="@null"
+                android:onClick="onDigit"/>
             <Button
+                android:id="@+id/btnThree"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="3"
                 android:background="@drawable/custom_button"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                app:backgroundTint="@null"
+                android:onClick="onDigit"/>
             <Button
+                android:id="@+id/btnSubtract"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="-"
                 android:background="@drawable/custom_button"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                app:backgroundTint="@null"
+                android:onClick="onOperator"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -132,38 +172,57 @@
             android:layout_weight="1"
             >
             <Button
+                android:id="@+id/btnZero"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="20"
+                android:layout_weight="1"
                 android:text="0"
                 android:background="@drawable/custom_button"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                app:backgroundTint="@null"
+                android:onClick="onDigit"/>
             <Button
+                android:id="@+id/btnDecimal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="."
+                android:background="@drawable/custom_button"
+                android:layout_margin="5dp"
+                app:backgroundTint="@null"
+                android:onClick="onDecimalPoint"/>
+            <Button
+                android:id="@+id/btnCLR"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="CLR"
                 android:layout_margin="5dp"
-                android:background="@drawable/custom_button"/>
+                android:background="@drawable/custom_button"
+                app:backgroundTint="@null"
+                android:onClick="onClear"/>
             <Button
+                android:id="@+id/btnAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:text="+"
-                android:background="@drawable/custom_button"/>
+                android:background="@drawable/custom_button"
+                app:backgroundTint="@null"
+                android:onClick="onOperator"/>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
             <Button
+                android:layout_weight="1"
+                android:id="@+id/btnResult"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="="
                 android:background="@drawable/custom_button"
-                android:layout_margin="5dp"/>
-        </LinearLayout>
+                app:backgroundTint="@null"
+                android:layout_margin="5dp"
+                android:onClick="onEqual"/>
+
     </LinearLayout>
 
 </LinearLayout>
