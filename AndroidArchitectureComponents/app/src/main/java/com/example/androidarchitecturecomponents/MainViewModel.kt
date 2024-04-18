@@ -1,11 +1,16 @@
 package com.example.androidarchitecturecomponents
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
-    var count : Int = 0
+    private val factsLiveDataObject = MutableLiveData<String>("This is a fact")
 
-    fun increment(){
-        count++
+    val factsLiveData : LiveData<String>
+        get() = factsLiveDataObject
+
+    fun updateLiveData(){
+        factsLiveDataObject.value = "This is change"
     }
 }
