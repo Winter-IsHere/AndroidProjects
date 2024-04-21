@@ -4,31 +4,37 @@
 
     <data>
         <variable
-            name="quote"
-            type="com.example.androidarchitecturecomponents.Quote" />
+            name="mainViewModel"
+            type="com.example.androidarchitecturecomponents.MainViewModel" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="40dp"
         android:orientation="vertical"
         android:gravity="center"
         tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/tvQuote"
-            android:text="@{quote.text}"
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="28sp" />
+            android:text="@={mainViewModel.quoteLiveData}"/>
 
         <TextView
-            android:id="@+id/tvAuthor"
-            android:text="@{quote.author}"
+            android:id="@+id/tvFact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:layout_marginTop="16dp" />
+            android:text="@{mainViewModel.quoteLiveData}"
+            android:textAlignment="center"
+            android:textSize="32sp" />
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:onClick="@{()-> mainViewModel.updateQuote()}"
+            android:text="Update Fact"/>
 
     </LinearLayout>
 </layout>

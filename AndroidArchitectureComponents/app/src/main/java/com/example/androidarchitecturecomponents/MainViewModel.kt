@@ -5,12 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainViewModel : ViewModel() {
-    private val factsLiveDataObject = MutableLiveData<String>("This is a fact")
+    val quoteLiveData = MutableLiveData<String>("What you give is what you get")
 
-    val factsLiveData : LiveData<String>
-        get() = factsLiveDataObject
-
-    fun updateLiveData(){
-        factsLiveDataObject.value = "This is change"
+    fun updateQuote(){
+        quoteLiveData.value = "You'll see it when you believe it."
     }
 }
