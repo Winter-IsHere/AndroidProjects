@@ -9,16 +9,17 @@ import com.example.androidarchitecturecomponents.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var mainViewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
-        mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
-        binding.mainViewModel = mainViewModel
-        binding.lifecycleOwner = this
+        val post = Post("Introduction to Kotlin",
+            "By Winter",
+            "https://imgs.xkcd.com/comics/mc_hammer_age.png")
 
+        binding.post = post
     }
+
 
 }
