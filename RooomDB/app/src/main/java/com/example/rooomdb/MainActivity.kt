@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         database = ContactDatabase.getDatabase(this)
 
         GlobalScope.launch {
-            database.contactDao().insertContact(Contact(0,"Winter","007", Date()))
+            database.contactDao().insertContact(Contact(0,"Jeffery","008", Date(),1))
         }
 
         tvDisplayData.setOnClickListener {
