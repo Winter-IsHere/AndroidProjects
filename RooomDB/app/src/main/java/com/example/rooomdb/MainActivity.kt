@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.room.Room
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.Date
 
 class MainActivity : AppCompatActivity() {
     private lateinit var database: ContactDatabase
@@ -16,13 +17,10 @@ class MainActivity : AppCompatActivity() {
 
         val tvDisplayData = findViewById<TextView>(R.id.tvDisplayData)
 
-        database = Room.databaseBuilder(
-            applicationContext,
-            ContactDatabase::class.java,
-            "ContactDB").build()
+        database = ContactDatabase.getDatabase(this)
 
         GlobalScope.launch {
-            database.contactDao().insertContact(Contact(0,"Winter","007"))
+            database.contactDao().insertContact(Contact(0,"Winter","007", Date()))
         }
 
         tvDisplayData.setOnClickListener {
